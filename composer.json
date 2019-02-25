@@ -1,0 +1,30 @@
+{
+    "name": "omnes-group/partial-elements",
+    "description": "All form & partial elements from the projects from omnes.",
+    "homepage": "https://github.com/omnes-group/partial-elements",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Patrick Flügge",
+            "email": "p.fluegge@omnes-group.de",
+            "homepage": "https://omnes-group.de",
+            "role": "Developer"
+        }
+    ],
+    "require": { "php": ">=5.4.0" },
+    "autoload": {
+        "psr-4": {
+          "OmnesGroup\\PartialElements\\": "src"
+        }
+      },
+    "extra": {
+        "laravel": {
+          "providers": [
+            "OmnesGroup\\PartialElements\\PartialElementsServiceProvider"
+          ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+  }
+}
