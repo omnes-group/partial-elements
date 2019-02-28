@@ -1,3 +1,4 @@
 @include('partial-elements::base.input',[
-    'name' => 'password'
+    'name' => 'password',
+    'type' => 'password'
 ])

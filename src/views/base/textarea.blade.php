@@ -4,18 +4,14 @@
     <div class="form-group col-md-{{ $size ?? config('partialElements.col_size') }}">
         <label class="form-check-label" for="{{ $name }}">{{ __($description ?? ucfirst($name)) }}</label>
 
-        <input type="{{ $type ?? config('partialElements.input_type')}}"
-            class="form-control {{ session()->has($name) ? config('partialElements.error_class') : '' }}"
+        <textarea class="form-control"
             id="{{ $name }}"
             placeholder="{{ $description ?? ucfirst($name) }}"
             name="{{ $name }}"
-            value="{{ old($name) }}"
+            rows="{{isset($rows) && $rows == true ? config('partialElements.textarea_rows') : ''}}"
             {{isset($autofocus) && $autofocus == true ? 'autofocus' : ''}}
             {{isset($required) && $autofrequiredocus == true ? 'required' : ''}}
-            @if(isset($type) && $type == 'number')
-                @include('partial-elements::base.number')
-            @endif
-        >
+        >{{ old($name) }}</textarea>
 
         @if (session()->has($name))
             <span class="{{ config('partialElements.error_feedback') }}" role="alert">
