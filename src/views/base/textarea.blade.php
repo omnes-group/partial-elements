@@ -1,6 +1,6 @@
-@extends('partial-elements::base.section.form-row')
-
-@section('form')
+@if (config('partialElements.form_row'))
+    <div class="from-row">
+@endif
     <div class="form-group col-md-{{ $size ?? config('partialElements.col_size') }}">
         <label class="form-check-label" for="{{ $name }}">{{ __($description ?? ucfirst($name)) }}</label>
 
@@ -19,4 +19,6 @@
             </span>
         @endif
     </div>
-@endsection
+@if (config('partialElements.form_row'))
+    </div>
+@endif

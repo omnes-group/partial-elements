@@ -1,13 +1,13 @@
-@extends('partial-elements::base.section.form-row')
-
-@section('form')
+@if (config('partialElements.form_row'))
+    <div class="from-row">
+@endif
     <div class="form-group col-md-{{ $size ?? config('partialElements.col_size') }}">
         <label class="form-check-label" for="{{ $name }}">{{ __($description ?? ucfirst($name)) }}</label>
 
         <input type="{{ $type ?? config('partialElements.input_type')}}"
             class="form-control {{ session()->has($name) ? config('partialElements.error_class') : '' }}"
             id="{{ $name }}"
-            placeholder="{{ $description ?? ucfirst($name) }}"
+            placeholder="{{$placeholder ?? $description ?? ucfirst($name) }}"
             name="{{ $name }}"
             value="{{ old($name) }}"
             {{isset($autofocus) && $autofocus == true ? 'autofocus' : ''}}
@@ -23,4 +23,6 @@
             </span>
         @endif
     </div>
-@endsection
+@if (config('partialElements.form_row'))
+    </div>
+@endif

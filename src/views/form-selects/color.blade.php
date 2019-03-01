@@ -1,6 +1,5 @@
 @include('partial-elements::base.select', [
     'name' => 'color',
-    'description' => 'Faben auswahl',
     'items' => [
         ['value' => 'primary', 'description' => 'Blau'],
         ['value' => 'secondary', 'description' => 'Grau'],
