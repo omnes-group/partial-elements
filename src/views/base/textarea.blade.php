@@ -1,6 +1,4 @@
-@if (config('partialElements.form_row'))
-    <div class="from-row">
-@endif
+@include('partial-elements::base.partials.open-form-row')
     <div class="form-group col-md-{{ $size ?? config('partialElements.col_size') }}">
         <label class="form-check-label" for="{{ $name }}">{{ __($description ?? ucfirst($name)) }}</label>
 
@@ -8,7 +6,7 @@
             id="{{ $name }}"
             placeholder="{{ $description ?? ucfirst($name) }}"
             name="{{ $name }}"
-            rows="{{isset($rows) && $rows == true ? config('partialElements.textarea_rows') : ''}}"
+            rows="{{isset($rows) ? $rows : config('partialElements.textarea_rows')}}"
             {{isset($autofocus) && $autofocus == true ? 'autofocus' : ''}}
             {{isset($required) && $autofrequiredocus == true ? 'required' : ''}}
         >{{ old($name) }}</textarea>
@@ -19,6 +17,4 @@
             </span>
         @endif
     </div>
-@if (config('partialElements.form_row'))
-    </div>
-@endif
+@include('partial-elements::base.partials.close-form-row')

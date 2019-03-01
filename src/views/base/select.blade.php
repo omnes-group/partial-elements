@@ -1,6 +1,4 @@
-@if (config('partialElements.form_row'))
-    <div class="from-row">
-@endif
+@include('partial-elements::base.partials.open-form-row')
     <div class="form-group col-md-{{ $size ?? config('partialElements.col_size') }}">
         <label class="form-check-label" for="{{ $name }}">{{ __($description ?? ucfirst($name)) }}</label>
 
@@ -14,7 +12,7 @@
                 @foreach($items as $item)
                     <option
                         value="{{ $item['value'] }}"
-                        {{ ($item['value'] == $selected ? "selected":"") }}
+                        {{ (isset($selected) && $item['value'] == $selected ? "selected":"") }}
                     >
                         {{ __($item['description'] ?? ucfirst($item['name'])) }}
                     </option>
@@ -28,6 +26,4 @@
             </span>
         @endif
     </div>
-@if (config('partialElements.form_row'))
-    </div>
-@endif
+@include('partial-elements::base.partials.close-form-row')
