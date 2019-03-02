@@ -9,7 +9,9 @@
             rows="{{isset($rows) ? $rows : config('partialElements.textarea_rows')}}"
             {{isset($autofocus) && $autofocus == true ? 'autofocus' : ''}}
             {{isset($required) && $autofrequiredocus == true ? 'required' : ''}}
-        >{{ old($name) }}</textarea>
+        >
+            {{ old($name) ?? isset($value) ? $value : '' }}
+        </textarea>
 
         @if (session()->has($name))
             <span class="{{ config('partialElements.error_feedback') }}" role="alert">

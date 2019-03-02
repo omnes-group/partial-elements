@@ -7,7 +7,7 @@
             id="{{ $name }}"
             placeholder="{{$placeholder ?? $description ?? ucfirst($name) }}"
             name="{{ $name }}"
-            value="{{ old($name) }}"
+            value="{{ old($name) ?? isset($value) ? $value : '' }}"
             {{isset($autofocus) && $autofocus == true ? 'autofocus' : ''}}
             {{isset($required) && $autofrequiredocus == true ? 'required' : ''}}
             @if(isset($type) && $type == 'number')
