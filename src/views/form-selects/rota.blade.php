@@ -5,5 +5,7 @@
         ['value' => 3, 'description' => 'Vierteljährlich'],
         ['value' => 6, 'description' => 'Halbjährlich'],
         ['value' => 12, 'description' => 'Jährlich']
+        ['value' => 24, 'description' => 'Zweijährlich']
+        ['value' => 36, 'description' => 'Dreijährlich']
     ]
 ])
