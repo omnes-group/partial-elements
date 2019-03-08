@@ -1,6 +1,8 @@
 @include('partial-elements::base.partials.open-form-row')
     <div class="form-group col-md-{{ $size ?? config('partialElements.col_size') }}">
-        <label class="form-check-label" for="{{ $name }}">{{ __($description ?? ucfirst($name)) }}</label>
+        @if (isset($type) && $type != 'hidden' || !isset($type)) 
+            <label class="form-check-label" for="{{ $name }}">{{ __($description ?? ucfirst($name)) }}</label>
+        @endif
 
         <input type="{{ $type ?? config('partialElements.input_type')}}"
             class="form-control {{ session()->has($name) ? config('partialElements.error_class') : '' }}"
@@ -10,6 +12,7 @@
             value="{{ old($name) ?? isset($value) ? $value : '' }}"
             {{isset($autofocus) && $autofocus == true ? 'autofocus' : ''}}
             {{isset($required) && $autofrequiredocus == true ? 'required' : ''}}
+            {{isset($disabled) && $disabled == true ? 'disabled' : ''}}
             @if(isset($type) && $type == 'number')
                 @include('partial-elements::base.number')
             @endif

@@ -4,11 +4,12 @@
 
         <textarea class="form-control"
             id="{{ $name }}"
-            placeholder="{{ $description ?? ucfirst($name) }}"
+            placeholder="{{ $placeholder ?? $description ?? ucfirst($name) }}"
             name="{{ $name }}"
             rows="{{isset($rows) ? $rows : config('partialElements.textarea_rows')}}"
             {{isset($autofocus) && $autofocus == true ? 'autofocus' : ''}}
             {{isset($required) && $autofrequiredocus == true ? 'required' : ''}}
+            {{isset($disabled) && $disabled == true ? 'disabled' : ''}}
         >
             {{ old($name) ?? isset($value) ? $value : '' }}
         </textarea>

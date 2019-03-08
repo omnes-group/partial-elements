@@ -7,6 +7,7 @@
             name="{{ $name }}"
             {{isset($autofocus) && $autofocus == true ? 'autofocus' : ''}}
             {{isset($required) && $autofrequiredocus == true ? 'required' : ''}}
+            {{isset($disabled) && $disabled == true ? 'disabled' : ''}}
         >
             @if(isset($items))
                 @foreach($items as $item)
