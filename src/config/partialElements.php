@@ -11,4 +11,5 @@ return [
     'number_max' => '20000000',
     'number_min' => '0.01',
     'textarea_rows' => '3',
+    'checkbox_color' => 'default',
 ];
