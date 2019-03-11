@@ -6,8 +6,10 @@
 
         <div class="funkyradio" style="margin-top:-35px">
             <div class="funkyradio-{{$color ?? config('partialElements.checkbox_color') ?? 'default'}}">
-                <input type="checkbox" name="{{$name}}" id="{{$name}}" checked/>
-                <label for="{{$name}}">{{$description ?? $name}}</label>
+                <input type="checkbox" name="{{$name}}" id="{{$name}}"
+                    {{isset($checked) && $checked == true ? 'checked' : ''}}
+                />
+                <label for="{{$name}}">{{$short ?? $description ?? $name}}</label>
             </div>
         </div>
 
