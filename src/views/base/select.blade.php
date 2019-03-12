@@ -6,7 +6,7 @@
             id="{{ $name }}"
             name="{{ $name }}"
             {{isset($autofocus) && $autofocus == true ? 'autofocus' : ''}}
-            {{isset($required) && $autofrequiredocus == true ? 'required' : ''}}
+            {{isset($required) && $required == true ? 'required' : ''}}
             {{isset($disabled) && $disabled == true ? 'disabled' : ''}}
         >
             @if(isset($items))

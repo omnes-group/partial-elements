@@ -11,7 +11,7 @@
             name="{{ $name }}"
             value="{{ old($name) ?? isset($value) ? $value : '' }}"
             {{isset($autofocus) && $autofocus == true ? 'autofocus' : ''}}
-            {{isset($required) && $autofrequiredocus == true ? 'required' : ''}}
+            {{isset($required) && $required == true ? 'required' : ''}}
             {{isset($disabled) && $disabled == true ? 'disabled' : ''}}
             @if(isset($type) && $type == 'number')
                 @include('partial-elements::base.number')
