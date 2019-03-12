@@ -10,9 +10,7 @@
             {{isset($autofocus) && $autofocus == true ? 'autofocus' : ''}}
             {{isset($required) && $required == true ? 'required' : ''}}
             {{isset($disabled) && $disabled == true ? 'disabled' : ''}}
-        >
-            {{ old($name) ?? isset($value) ? $value : '' }}
-        </textarea>
+        >{{ old($name) ?? isset($value) ? $value : '' }}</textarea>
 
         @if (session()->has($name))
             <span class="{{ config('partialElements.error_feedback') }}" role="alert">
