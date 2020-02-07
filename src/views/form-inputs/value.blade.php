@@ -1,13 +1,7 @@
-@include('partial-elements::base.input',[
+@include('partial-elements::base.input',array_merge([
     'name' => 'value',
     'type' => 'number',
     'pattern' => '[0-9]+([\.,][0-9]+)?"',
-    if ($min === false) {
-        'min' => '0.01',
-    }
-    if ($max === false) {
-        'max' => '20000000',
-    }
     'step' => '0.01',
-
-])
+], isset($max) && $max === false ? [] : ['max' => '20000000'],
+ isset($min) && $min === false ? [] : ['min' => '0.01']))
